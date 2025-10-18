@@ -32,9 +32,9 @@
     --social-color7: #ffffff;
     --social-color22: #ffffff;
 
-    --whatsapp-color1: var(#129706);
-    --email-color1: var(#0590b3);
-    --sms-color1: var(#e29608);
+    --whatsapp-color1: (#129706);
+    --email-color1: (#0590b3);
+    --sms-color1: (#e29608);
 
     --van-color: #1b1519;
     --van-color2: #2e292c;
@@ -51,6 +51,24 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
 }
+
+
+
+
+
+
+#main-content {
+    position: relative;
+    z-index: 1; /* above particles */
+}
+
+
+
+
+
+
+
+
 
 section {
     min-height: 100vh;
@@ -73,17 +91,6 @@ section {
 .header.sticky {
     border-bottom: .1rem solid rgba(0, 0, 0, 0);
 }
-
-/* Particles container fills the screen */
-#particles-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
 
 /* Logo Section */
 .logo {
@@ -1074,6 +1081,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 2rem 9%;
+    position: relative; /* sit above particles */
+    z-index: 2;
     background: var(--my-color);
 }
 
@@ -1147,6 +1156,35 @@ body {
     box-shadow: 0 0 1rem var(--main-color);
     transform: translateY(-5px);
 }
+
+
+
+
+
+
+
+
+
+/* Particles background */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0; /* behind all content */
+ pointer-events: all;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 1200px) {
@@ -1290,10 +1328,23 @@ details[open] {
     }
 }
 
-@media (max-width: 365px) {
+@media (max-width: 768px) {
+.home-img {
+    display: block;
+    max-width: 90vw;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
     .home-img img {
-        width: 90vw;
+        width: 70vw;        /* bigger for small screens */
+        max-width: 300px;   /* optional limit */
+        z-index: 2;         /* ensure above particles */
+        position: relative; /* needed for z-index */
+        margin-top: 2rem;
     }
+}
+
 
     .about-img img {
         width: 90vw;

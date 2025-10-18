@@ -10,12 +10,19 @@
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
+
+ 
+
     <link rel="stylesheet" href="css/style.css">
 </head>
-
+   
 <body>
-    <header class="header">
+
+    <!-- Particles.js container -->
+<div id="particles-js"></div>
+
+ <div id="main-content"></div>
+<header class="header">
         <!-- Logo + Title + Subtitle -->
         <a href="#" class="logo">
             <div class="logo-container">
@@ -38,8 +45,6 @@
             <a href="#contact">CONTACT</a>
         </nav>
     </header>
-
-  
 
     <section class="home" id="home">
         <div class="home-content">
@@ -69,15 +74,22 @@
                 </a>
             </div>
 
-            <a href="images/main-site/INFO/CV.jpg" class="btn1">DOWNLOAD CV</a>
+      <a href="#" id="previewCV" class="btn1">
+    <i class='bx bx-download bx-md'style="margin-right: 5px; font-size: 24px;"></i> DOWNLOAD CV
+</a>
+
+
         </div>
 
         <div class="home-img">
             <img src="images/main-site/Per.png" class="png">
 
         </div>
+    
     </section>
 
+
+    
     <section class="about" id="about">
         <div class="about-img">
             <img src="images/main-site/Perso.png" class="png">
@@ -802,8 +814,8 @@
                 <a href="https://www.google.com/"><img src="images/sponsors logos/color/google 2.png" alt="Google"></a>
                 <a href="https://www.adobe.com/"><img src="images/sponsors logos/color/adobe 2.png" alt="Adobe"></a>
 
-                <u>All trademarks, logos, and brand names are the<br>
-                    property of their respective owners.</br></u>
+                <u>All trademarks, logos, and brand names are the property
+                    <br>of their respective owners.</br></u>
             </div>
 
 
@@ -812,16 +824,19 @@
                 <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
             </div>
         </div>
+        
     </footer>
 
     </footer>
+
+    </div>
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
     <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="particles-config.js"></script>
-
+  
+   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+   <script src="particles-config.js"></script>
 </body>
 
 </html>

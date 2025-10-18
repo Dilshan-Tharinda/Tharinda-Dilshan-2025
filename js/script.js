@@ -120,8 +120,10 @@ document.getElementById("emailBtn").addEventListener("click", function(){
             + "Mobile: " + mobile + "\n\n"
             + "Message: " + message
         );
-    window.location.href = mailto;
+    // Open in a new window instead of changing location
+    window.open(mailto, "_blank");
 });
+
 
 // SMS (mobile only)
 function isMobileDevice() {
@@ -149,6 +151,25 @@ if (isMobileDevice()) {
         window.location.href = sms;
     });
 } else smsBtn.style.display = "none";
+
+// Prevent services links from breaking particles
+document.querySelectorAll(".services-box .btn2").forEach(link => {
+    link.addEventListener("click", function(e) {
+        e.preventDefault(); // Stop default page navigation
+        const url = link.getAttribute("href"); // Get link URL
+        if (url) {
+            window.open(url, "_blank"); // Open in new tab
+        }
+    });
+});
+
+document.getElementById("previewCV").addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent default link behavior
+
+    // Open the image in a new tab
+    const imageUrl = "images/main-site/INFO/CV.jpg";
+    window.open(imageUrl, "_blank"); // _blank ensures new tab
+});
 
 // ========================
 // VIDEO PLAY & SCROLL
@@ -211,148 +232,83 @@ new Typed('.multiple-text2', {
 });
 
 
- particlesJS('particles-js', {
-    particles: {
-      number: {
-        value: 100,
-        density: {
-          enable: true,
-          value_area: 800
-        }
-      },
-      color: {
-        value: '#ffffff'
-      },
-      shape: {
-        type: 'circle',
-        stroke: {
-          width: 0,
-          color: '#000000'
-        },
-        polygon: {
-          nb_sides: 5
-        },
-        image: {
-          src: 'img/github.svg',
-          width: 100,
-          height: 100
-        }
-      },
-      opacity: {
-        value: 0.5,
-        random: false,
-        anim: {
-          enable: false,
-          speed: 1,
-          opacity_min: 0.1,
-          sync: false
-        }
-      },
-      size: {
-        value: 3,
-        random: true,
-        anim: {
-          enable: false,
-          speed: 40,
-          size_min: 0.1,
-          sync: false
-        }
-      },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: '#ffffff',
-        opacity: 0.4,
-        width: 1
-      },
-      move: {
-        enable: true,
-        speed: 6,
-        direction: 'none',
-        random: false,
-        straight: false,
-        out_mode: 'out',
-        bounce: false,
-        attract: {
-          enable: false,
-          rotateX: 600,
-          rotateY: 1200
-        }
-      }
-    },
-    interactivity: {
-      detect_on: 'canvas',
-      events: {
-        onhover: {
-          enable: true,
-          mode: 'repulse'
-        },
-        onclick: {
-          enable: true,
-          mode: 'push'
-        },
-        resize: true
-      },
-      modes: {
-        grab: {
-          distance: 400,
-          line_linked: {
-            opacity: 1
-          }
-        },
-        bubble: {
-          distance: 400,
-          size: 40,
-          duration: 2,
-          opacity: 8,
-          speed: 3
-        },
-        repulse: {
-          distance: 200,
-          duration: 0.4
-        },
-        push: {
-          particles_nb: 4
-        },
-        remove: {
-          particles_nb: 2
-        }
-      }
-    },
-    retina_detect: true
+/* ========================
+   PARTICLES.JS BACKGROUND
+   ======================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById('particles-js');
+
+  // Fade out on page unload
+  window.addEventListener("beforeunload", () => {
+    container.style.opacity = "0";
   });
 
-  /* Make sure particles.js library is loaded before this code */
-particlesJS('particles-js-effect', {
-  particles: {
-    number: { value: 100, density: { enable: true, value_area: 800 } },
-    color: { value: "#ff0000ff" },
-    shape: { type: "circle" },
-    opacity: { value: 0.7 },
-    size: { value: { min: 1, max: 4 } },
-    line_linked: { enable: true, distance: 120, color: "#ff0000ff", opacity: 0.3, width: 1 },
-    move: {
-      enable: true,
-      speed: 1.5,
-      direction: "none",
-      random: true,
-      straight: false,
-      out_mode: "out",
-      attract: { enable: true, rotateX: 600, rotateY: 1200 }
-    }
-  },
-  interactivity: {
-    events: {
-      onhover: { enable: true, mode: "grab" }, // smooth mouse-follow
-      onclick: { enable: true, mode: "push" },
-      resize: true
-    },
-    modes: {
-      grab: { distance: 200, line_linked: { opacity: 0.5 } },
-      push: { particles_nb: 4 }
-    }
-  },
-  retina_detect: true
+  if (typeof particlesJS !== "undefined") {
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: '#ffffff' },
+        shape: {
+          type: 'circle',
+          stroke: { width: 0, color: '#000000' },
+          polygon: { nb_sides: 5 },
+          image: { src: 'img/github.svg', width: 100, height: 100 }
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#ffffff',
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 6,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+          bounce: false,
+          attract: { enable: false, rotateX: 600, rotateY: 1200 }
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 400, line_linked: { opacity: 1 } },
+          bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+          repulse: { distance: 200, duration: 0.4 },
+          push: { particles_nb: 4 },
+          remove: { particles_nb: 2 }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Gentle parallax mouse movement
+    document.addEventListener('mousemove', e => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 8;
+      const y = (e.clientY / window.innerHeight - 0.5) * 8;
+      container.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  } else {
+    console.warn("⚠️ particles.js not loaded properly");
+  }
 });
 
 
