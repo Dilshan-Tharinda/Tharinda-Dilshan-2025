@@ -281,28 +281,37 @@ section {
     justify-content: center;
     align-items: center;
     padding-top: 120px;
-    /* ensures section content is not hidden */
+
 }
 
+/* Home Image */
+.home-img {
+    display: block;
+    max-width: 100%;
+    z-index: 2;           /* above particles */
+    position: relative;    /* needed for z-index */
+    margin-left: 3rem;     /* spacing from content */
+}
 
 .home-img img {
-    width: 35vw;
+    width: 35vw;           /* default desktop width */
+    max-width: 400px;      /* cap max size */
+    height: auto;
+    display: block;
     animation: floatImage 4s ease-in-out infinite;
+    object-fit: contain;
 }
 
+/* Float Animation */
 @keyframes floatImage {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-2.4rem);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-2.4rem); }
+    100% { transform: translateY(0); }
 }
+
+
+
+
 
 .home-content h3 {
     font-size: 3.2rem;
@@ -1326,24 +1335,22 @@ details[open] {
     .contact form .input-box input {
         width: 100%;
     }
-}
 
-@media (max-width: 768px) {
-.home-img {
-    display: block;
-    max-width: 90vw;
-    z-index: 2;
-}
 
 @media (max-width: 768px) {
     .home-img img {
-        width: 70vw;        /* bigger for small screens */
-        max-width: 300px;   /* optional limit */
-        z-index: 2;         /* ensure above particles */
-        position: relative; /* needed for z-index */
+        width: 70vw;
+        max-width: 300px;
         margin-top: 2rem;
     }
 }
+
+@media (max-width: 450px) {
+    .home-img img {
+        width: 80vw;
+        max-width: 250px;
+        margin-top: 1.5rem;
+    }
 
 
     .about-img img {
@@ -1359,4 +1366,5 @@ details[open] {
         margin-top: 2rem;
 
     }
+}
 }
