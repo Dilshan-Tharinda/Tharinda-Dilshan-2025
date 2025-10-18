@@ -132,25 +132,32 @@ function isMobileDevice() {
 const smsBtn = document.getElementById("smsBtn");
 if (isMobileDevice()) {
     smsBtn.style.display = "inline-block";
-    smsBtn.addEventListener("click", function(){
+    smsBtn.addEventListener("click", function(e){
+        e.preventDefault(); // prevent site reload
+
         let name = document.getElementById("fullname").value;
         let email = document.getElementById("email").value;
         let mobile = document.getElementById("mobile").value;
         let subject = document.getElementById("subject").value;
         let message = document.getElementById("message").value;
         let phoneNumber = "94756136278";
-        let sms = "sms:" + phoneNumber + "?body="
-            + encodeURIComponent(
-                "New Contact Form Submission\n\n"
-                + "Name: " + name + "\n"
-                + "Email: " + email + "\n"
-                + "Mobile: " + mobile + "\n"
-                + "Subject: " + subject + "\n"
-                + "Message: " + message
+        let sms = "sms:" + phoneNumber + "?body=" +
+            encodeURIComponent(
+                "New Contact Form Submission\n\n" +
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
+                "Mobile: " + mobile + "\n" +
+                "Subject: " + subject + "\n" +
+                "Message: " + message
             );
-        window.location.href = sms;
+
+        // open SMS app in a new tab/window (no reload or particle loss)
+        window.open(sms, "_blank", "noopener,noreferrer");
     });
-} else smsBtn.style.display = "none";
+} else {
+    smsBtn.style.display = "none";
+}
+
 
 // Prevent services links from breaking particles
 document.querySelectorAll(".services-box .btn2").forEach(link => {
