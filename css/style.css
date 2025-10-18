@@ -276,55 +276,18 @@ section {
     }
 }
 
-/* ------------------ HOME SECTION ------------------ */
 .home {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* stack content for mobile */
-    padding-top: 120px; /* avoid overlapping header */
-    position: relative;
-    z-index: 1; /* above particles */
+    padding-top: 120px;
+    /* ensures section content is not hidden */
 }
 
-/* Home image container */
-.home-img {
-    display: flex; /* same as About section */
-    justify-content: center;
-    align-items: center;
-    width: 35vw;       /* desktop width */
-    max-width: 400px;  /* optional limit */
-    margin-top: 2rem;
-    position: relative;
-    z-index: 2;        /* above particles */
-}
 
-/* Home image itself */
 .home-img img {
-    width: 100%;
-    height: auto;
-    display: block;
-
+    width: 35vw;
 }
-
-/* ------------------ MOBILE ADJUSTMENTS ------------------ */
-@media (max-width: 991px) {
-    .home-img {
-        width: 70vw;       /* fit smaller screens */
-        max-width: 300px;  /* prevent huge images */
-        margin-top: 2rem;
-    }
-}
-
-@media (max-width: 617px) {
-    .home-img {
-        width: 85vw;       /* very small screens */
-        max-width: 250px;
-        margin-top: 1.5rem;
-    }
-}
-
-
 .home-content h3 {
     font-size: 3.2rem;
     font-weight: 700;
@@ -418,13 +381,6 @@ span25 {
     font-weight: 600;
 }
 
-
-
-
-
-
-
-
 /* -----------------------
    Social Media Container
 ----------------------- */
@@ -463,28 +419,6 @@ span25 {
     height: 100%;
 }
 
-/* -----------------------
-   FLOAT ANIMATION WITH RANDOM OFFSET
------------------------ */
-@keyframes floatGlow {
-
-    0%,
-    100% {
-        transform: translateY(var(--float-offset, 0)) scale(1);
-    }
-
-    25% {
-        transform: translateY(calc(var(--float-offset, 0) - 2px)) scale(1.02);
-    }
-
-    50% {
-        transform: translateY(var(--float-offset, 0)) scale(1.03);
-    }
-
-    75% {
-        transform: translateY(calc(var(--float-offset, 0) + 2px)) scale(1.02);
-    }
-}
 
 /* -----------------------
    ICON ANIMATION & COLORS
@@ -526,7 +460,6 @@ span25 {
     --float-offset: 2px;
 }
 
-
 /* -----------------------
    HOVER POP-UP + INTENSE GLOW
 ----------------------- */
@@ -558,26 +491,6 @@ span25 {
 .social-media a.instagram:hover::before {
     opacity: 0.4;
 }
-
-/* -----------------------
-   Optional: stagger for natural float
------------------------ */
-.social-media a:nth-child(1) .icon {
-    animation-delay: 0s;
-}
-
-.social-media a:nth-child(2) .icon {
-    animation-delay: 0.15s;
-}
-
-.social-media a:nth-child(3) .icon {
-    animation-delay: 0.3s;
-}
-
-.social-media a:nth-child(4) .icon {
-    animation-delay: 0.45s;
-}
-
 
 .btn1 {
     display: inline-block;
@@ -1349,23 +1262,10 @@ details[open] {
     }
 }
 
-@media (max-width: 768px) {
-.home-img {
-    display: block;
-    max-width: 90vw;
-    z-index: 2;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 365px) {
     .home-img img {
-        width: 70vw;        /* bigger for small screens */
-        max-width: 300px;   /* optional limit */
-        z-index: 2;         /* ensure above particles */
-        position: relative; /* needed for z-index */
-        margin-top: 2rem;
+        width: 90vw;
     }
-}
-
 
     .about-img img {
         width: 90vw;
