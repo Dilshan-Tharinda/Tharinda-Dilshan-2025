@@ -284,18 +284,24 @@ section {
 
 }
 
-/* Home Image */
+
+
+
+
+/* ===== HOME IMAGE ===== */
 .home-img {
     display: block;
     max-width: 100%;
     z-index: 2;           /* above particles */
     position: relative;    /* needed for z-index */
-    margin-left: 3rem;     /* spacing from content */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .home-img img {
-    width: 35vw;           /* default desktop width */
-    max-width: 400px;      /* cap max size */
+    width: 35vw;           /* desktop default */
+    max-width: 400px;
     height: auto;
     display: block;
     animation: floatImage 4s ease-in-out infinite;
@@ -308,6 +314,39 @@ section {
     50% { transform: translateY(-2.4rem); }
     100% { transform: translateY(0); }
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 991px) {
+    .home-img img {
+        width: 60vw;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-img img {
+        width: 70vw;
+        max-width: 300px;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .home-img img {
+        width: 80vw;
+        max-width: 250px;
+        margin-top: 1.5rem;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -405,12 +444,6 @@ span25 {
     font-size: 1.6rem;
     font-weight: 600;
 }
-
-
-
-
-
-
 
 
 /* -----------------------
@@ -1101,7 +1134,6 @@ body {
     color: #fff;
 }
 
-
 /* Right side container */
 .footer-right {
     display: flex;
@@ -1167,13 +1199,6 @@ body {
 }
 
 
-
-
-
-
-
-
-
 /* Particles background */
 #particles-js {
     position: fixed;
@@ -1184,16 +1209,6 @@ body {
     z-index: 0; /* behind all content */
  pointer-events: all;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 @media (max-width: 1200px) {
@@ -1267,10 +1282,27 @@ body {
         font-size: 5rem;
     }
 
-    .home-img img {
-        width: 70vw;
-        margin-top: 4rem;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     .about {
         flex-direction: column-reverse;
@@ -1337,21 +1369,20 @@ details[open] {
     }
 
 
-@media (max-width: 768px) {
-    .home-img img {
-        width: 70vw;
-        max-width: 300px;
-        margin-top: 2rem;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
-
-@media (max-width: 450px) {
-    .home-img img {
-        width: 80vw;
-        max-width: 250px;
-        margin-top: 1.5rem;
-    }
-
 
     .about-img img {
         width: 90vw;
@@ -1366,5 +1397,4 @@ details[open] {
         margin-top: 2rem;
 
     }
-}
-}
+
