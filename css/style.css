@@ -276,80 +276,60 @@ section {
     }
 }
 
+/* ------------------ HOME SECTION ------------------ */
 .home {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 120px;
-
+    flex-direction: column; /* stack content for mobile */
+    padding-top: 120px; /* avoid overlapping header */
+    position: relative;
+    z-index: 1; /* above particles */
 }
 
-
-
-
-
-/* ===== HOME IMAGE ===== */
+/* Home image container */
 .home-img {
-    display: block;
-    max-width: 100%;
-    z-index: 2;           /* above particles */
-    position: relative;    /* needed for z-index */
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    display: flex; /* same as About section */
+    justify-content: center;
+    align-items: center;
+    width: 35vw;       /* desktop width */
+    max-width: 400px;  /* optional limit */
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2;        /* above particles */
 }
 
+/* Home image itself */
 .home-img img {
-    width: 35vw;           /* desktop default */
-    max-width: 400px;
+    width: 100%;
     height: auto;
     display: block;
     animation: floatImage 4s ease-in-out infinite;
-    object-fit: contain;
 }
 
-/* Float Animation */
+/* Floating animation */
 @keyframes floatImage {
     0% { transform: translateY(0); }
     50% { transform: translateY(-2.4rem); }
     100% { transform: translateY(0); }
 }
 
-/* ===== Responsive ===== */
+/* ------------------ MOBILE ADJUSTMENTS ------------------ */
 @media (max-width: 991px) {
-    .home-img img {
-        width: 60vw;
-        max-width: 350px;
-    }
-}
-
-@media (max-width: 768px) {
-    .home-img img {
-        width: 70vw;
-        max-width: 300px;
+    .home-img {
+        width: 70vw;       /* fit smaller screens */
+        max-width: 300px;  /* prevent huge images */
         margin-top: 2rem;
     }
 }
 
-@media (max-width: 450px) {
-    .home-img img {
-        width: 80vw;
+@media (max-width: 617px) {
+    .home-img {
+        width: 85vw;       /* very small screens */
         max-width: 250px;
         margin-top: 1.5rem;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .home-content h3 {
@@ -444,6 +424,12 @@ span25 {
     font-size: 1.6rem;
     font-weight: 600;
 }
+
+
+
+
+
+
 
 
 /* -----------------------
@@ -1134,6 +1120,7 @@ body {
     color: #fff;
 }
 
+
 /* Right side container */
 .footer-right {
     display: flex;
@@ -1199,6 +1186,13 @@ body {
 }
 
 
+
+
+
+
+
+
+
 /* Particles background */
 #particles-js {
     position: fixed;
@@ -1209,6 +1203,16 @@ body {
     z-index: 0; /* behind all content */
  pointer-events: all;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 1200px) {
@@ -1282,27 +1286,10 @@ body {
         font-size: 5rem;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
 
     .about {
         flex-direction: column-reverse;
@@ -1367,6 +1354,25 @@ details[open] {
     .contact form .input-box input {
         width: 100%;
     }
+}
+
+@media (max-width: 768px) {
+.home-img {
+    display: block;
+    max-width: 90vw;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .home-img img {
+        width: 70vw;        /* bigger for small screens */
+        max-width: 300px;   /* optional limit */
+        z-index: 2;         /* ensure above particles */
+        position: relative; /* needed for z-index */
+        margin-top: 2rem;
+    }
+}
+
 
     .about-img img {
         width: 90vw;
@@ -1381,5 +1387,4 @@ details[open] {
         margin-top: 2rem;
 
     }
-
 }
