@@ -150,7 +150,6 @@ if (isMobileDevice()) {
     });
 } else smsBtn.style.display = "none";
 
-
 // ========================
 // VIDEO PLAY & SCROLL
 // ========================
@@ -323,17 +322,15 @@ new Typed('.multiple-text2', {
     retina_detect: true
   });
 
-
   /* Make sure particles.js library is loaded before this code */
-
 particlesJS('particles-js-effect', {
   particles: {
     number: { value: 100, density: { enable: true, value_area: 800 } },
-    color: { value: "#ffffff" },
+    color: { value: "#ff0000ff" },
     shape: { type: "circle" },
     opacity: { value: 0.7 },
     size: { value: { min: 1, max: 4 } },
-    line_linked: { enable: true, distance: 120, color: "#ffffff", opacity: 0.3, width: 1 },
+    line_linked: { enable: true, distance: 120, color: "#ff0000ff", opacity: 0.3, width: 1 },
     move: {
       enable: true,
       speed: 1.5,
