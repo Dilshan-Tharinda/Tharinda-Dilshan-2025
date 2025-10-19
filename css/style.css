@@ -274,6 +274,7 @@ section {
 
 .home-img img {
     width: 35vw;
+    z-index: 10;
     animation: floatImage 4s ease-in-out infinite;
 }
 
@@ -293,7 +294,7 @@ section {
 
 .home-img {
     position: relative;
-    z-index: 5;
+    z-index: 10;
 }
 .home-content h3 {
     font-size: 3.2rem;
