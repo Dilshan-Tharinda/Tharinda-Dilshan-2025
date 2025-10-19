@@ -1,3 +1,4 @@
+
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap);
 
 * {
@@ -52,23 +53,10 @@ body {
     color: var(--text-color);
 }
 
-
-
-
-
-
 #main-content {
     position: relative;
     z-index: 1; /* above particles */
 }
-
-
-
-
-
-
-
-
 
 section {
     min-height: 100vh;
@@ -284,7 +272,6 @@ section {
     /* ensures section content is not hidden */
 }
 
-
 .home-img img {
     width: 35vw;
     animation: floatImage 4s ease-in-out infinite;
@@ -304,6 +291,10 @@ section {
     }
 }
 
+.home-img {
+    position: relative;
+    z-index: 5;
+}
 .home-content h3 {
     font-size: 3.2rem;
     font-weight: 700;
@@ -384,7 +375,6 @@ span25 {
     margin-bottom: 2rem;
 }
 
-
 .home-content h1 {
     font-size: 5.6rem;
     font-weight: 700;
@@ -434,7 +424,6 @@ span25 {
     width: 100%;
     height: 100%;
 }
-
 
 /* -----------------------
    ICON ANIMATION & COLORS
@@ -605,7 +594,6 @@ span25 {
 .btn:hover {
     box-shadow: none;
 }
-
 
 .about-content h2 {
     text-align: left;
@@ -985,7 +973,6 @@ body {
     /* pull logos closer to the contact form button */
 }
 
-
 .logos-slide {
     display: flex;
     width: max-content;
@@ -1065,6 +1052,7 @@ body {
     /* Change to move PNGs left/right */
     /* justify-content: center;  -> center them before arrow */
     /* justify-content: flex-end; -> push closer to arrow */
+     flex-wrap: wrap; /* wraps icons on small screens */
 }
 
 .footer-icons a img {
@@ -1107,15 +1095,18 @@ body {
     transform: translateY(-5px);
 }
 
+.trademark {
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.5;
+    font-size: 1.1rem;
+    margin-top: 5px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
 
 
 
-
-
-
-
-
-/* Particles background */
 #particles-js {
     position: fixed;
     width: 100%;
@@ -1123,17 +1114,8 @@ body {
     top: 0;
     left: 0;
     z-index: 0; /* behind all content */
- pointer-events: all;
+    pointer-events: none; /* allows image to be seen and clicked */
 }
-
-
-
-
-
-
-
-
-
 
 
 
